@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abhishek Daramoni - AI Developer & Full Stack Engineer Portfolio Dashboard. Explore futuristic digital experiences, projects, and certifications.">
+  <title>Abhishek Daramoni // AI OS Developer Dashboard</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-blue custom-cursor-active">
+
+  <!-- Interactive Custom Cursor follower -->
+  <div id="custom-cursor" class="custom-cursor"></div>
+  <div id="custom-cursor-glow" class="custom-cursor-glow"></div>
+
+  <!-- Cyberpunk Boot Loading Screen -->
+  <div id="loader" class="loader-container">
+    <div class="loader-content">
+      <div class="cyber-glitch-text" data-text="CORE_OS v2.4">CORE_OS v2.4</div>
+      <div class="loader-bar-container">
+        <div class="loader-bar"></div>
+      </div>
+      <div class="loader-status">BOOTING CORE ENGINE...</div>
+      <div class="loader-percentage">0%</div>
+      <div class="loader-console-stream">
+        <div class="stream-line">> Loading kernel modules... OK</div>
+        <div class="stream-line">> Mounting user_profile_abhishek... OK</div>
+        <div class="stream-line">> Connecting to neural grid... ACTIVE</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Background Canvas (Neural net / Digital rain) -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Ambient Glow Blobs -->
+  <div class="ambient-glow bg-glow-1"></div>
+  <div class="ambient-glow bg-glow-2"></div>
+
+  <!-- Main Dashboard Container -->
+  <div class="app-container">
+    
+    <!-- Left Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="logo-glow"></div>
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+          <polyline points="2 17 12 22 22 17"/>
+          <polyline points="2 12 12 17 22 12"/>
+        </svg>
+        <span class="brand-text">AD_OS //</span>
+      </div>
+
+      <nav class="sidebar-menu">
+        <div class="menu-section">DASHBOARD CORE</div>
+        <a href="#home" class="menu-item active" data-view="home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>System Overview</span>
+        </a>
+        <a href="#about" class="menu-item" data-view="about">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Biometrics (About)</span>
+        </a>
+        <a href="#skills" class="menu-item" data-view="skills">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <span>Tech Modules (Skills)</span>
+        </a>
+        <a href="#projects" class="menu-item" data-view="projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          <span>Deployments (Projects)</span>
+        </a>
+        <a href="#certifications" class="menu-item" data-view="certifications">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Credentials (Certs)</span>
+        </a>
+        <a href="#analytics" class="menu-item" data-view="analytics">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span>Diagnostics (Stats)</span>
+        </a>
+        <a href="#contact" class="menu-item" data-view="contact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>Comms Uplink (Contact)</span>
+        </a>
+        <a href="#settings" class="menu-item" data-view="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span>Preferences (Config)</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar Profile Card -->
+      <div class="sidebar-profile-card">
+        <div class="profile-avatar-container">
+          <div class="avatar-glow"></div>
+          <div class="avatar-ring"></div>
+          <img src="profile_avatar.png" alt="Abhishek Daramoni" class="profile-avatar-img">
+        </div>
+        <div class="profile-info">
+          <div class="profile-name truncate">A. Daramoni</div>
+          <div class="profile-rank">B.Tech CSE (AI-ML)</div>
+          <div class="profile-status">
+            <span class="status-dot online"></span>
+            <span>OS_CONNECTED</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Top Sticky Navbar -->
+      <header class="top-navbar">
+        <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="3" y1="6" x2="21" y2="6" class="line-top"></line>
+            <line x1="3" y1="12" x2="21" y2="12" class="line-mid"></line>
+            <line x1="3" y1="18" x2="21" y2="18" class="line-bot"></line>
+          </svg>
+        </button>
+        <div class="nav-left">
+          <div class="search-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="global-search" placeholder="Query system database (e.g. skills, Azure, Vibify)..." autocomplete="off">
+            <button id="clear-search" class="clear-btn">&times;</button>
+            <div id="search-results-overlay" class="search-results-overlay"></div>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <!-- Live System Clock -->
+          <div class="system-clock">
+            <span id="system-time">00:00:00</span>
+            <span id="system-date" class="system-date">2026.05.20</span>
+          </div>
+
+          <!-- Notification Hub -->
+          <div class="nav-notifications">
+            <button id="notification-btn" class="nav-action-btn notification-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+              </svg>
+            </button>
+            <div id="notification-menu" class="notification-menu">
+              <div class="notif-header">
+                <span>SYSTEM MESSAGES</span>
+                <button id="clear-notifications">CLEAR ALL</button>
+              </div>
+              <div class="notif-list" id="notif-list">
+                <div class="notif-item unread">
+                  <span class="notif-dot"></span>
+                  <div class="notif-content">
+                    <div class="notif-title">SYSTEM ROOT SECURED</div>
+                    <div class="notif-time">Just now</div>
+                    <div class="notif-desc">Abhishek's Portfolio OS loaded with peak synchronization.</div>
+                  </div>
+                </div>
+                <div class="notif-item">
+                  <div class="notif-content">
+                    <div class="notif-title">CREDENTIAL UPLOADED</div>
+                    <div class="notif-time">3 hours ago</div>
+                    <div class="notif-desc">Microsoft Azure Fundamentals certificate hash verified on grid.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Connection Status Light -->
+          <div class="connection-status">
+            <span class="status-indicator-light blinking"></span>
+            <span class="status-label">GRID ONLINE</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- VIEW PANELS -->
+      
+      <!-- 1. HOME VIEW -->
+      <section class="view-panel active" id="home-view">
+        <div class="hero-section">
+          <div class="hero-glow"></div>
+          <div class="hero-content">
+            <div class="hero-badge">AI DEVELOPER PROFILE MATRIX</div>
+            <h1 class="hero-title text-glow">Abhishek Daramoni</h1>
+            <div class="typing-container">
+              <span class="typing-prefix">> </span><span id="typed-text" class="typed-text"></span><span class="cursor-blink">|</span>
+            </div>
+            <p class="hero-subtitle">
+              Building next-generation full stack interfaces and deploying AI/ML intelligence layers from Rajkot, Gujarat, India.
+            </p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn-primary nav-trigger" data-view="contact">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                <span>INITIATE UPLINK</span>
+              </a>
+              <a href="#" id="download-resume-btn" class="btn-secondary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>DOWNLOAD SCHEMATICS (RESUME)</span>
+              </a>
+            </div>
+            
+            <!-- Social Matrix Grid -->
+            <div class="social-matrix">
+              <a href="https://linkedin.com" target="_blank" class="social-grid-item" title="LinkedIn Connection">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="https://github.com" target="_blank" class="social-grid-item" title="GitHub Database">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+              <a href="mailto:abhishekdaramoni@email.com" class="social-grid-item" title="SMTP Mail Uplink">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Holographic Display Avatar Area -->
+          <div class="hero-visualizer-container">
+            <div class="hologram-circle-1"></div>
+            <div class="hologram-circle-2"></div>
+            <div class="hero-hologram-glow"></div>
+            <div class="profile-image-frame">
+              <img src="profile_avatar.png" alt="Abhishek Profile Avatar" class="profile-holo-img">
+            </div>
+            <div class="hologram-grid-lines"></div>
+          </div>
+        </div>
+
+        <!-- Dashboard Core Diagnostic Stats -->
+        <div class="dashboard-stats-grid">
+          <div class="stat-glass-card counter-card" data-target="320">
+            <div class="stat-header">
+              <span class="stat-tag text-cyan">METRIC_01</span>
+              <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="stat-count"><span class="counter-num">0</span>+</div>
+            <div class="stat-label">Coding Hours Logged</div>
+          </div>
+          
+          <div class="stat-glass-card counter-card" data-target="1500">
+            <div class="stat-header">
+              <span class="stat-tag text-green">METRIC_02</span>
+              <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 5.12 2h13.76a.42.42 0 0 1 .41.16l2.44 7.51 1.22 3.78a.84.84 0 0 1-.3.94z"/></svg>
+            </div>
+            <div class="stat-count"><span class="counter-num">0</span>+</div>
+            <div class="stat-label">GitHub Contributions</div>
+          </div>
+
+          <div class="stat-glass-card counter-card" data-target="12">
+            <div class="stat-header">
+              <span class="stat-tag text-purple">METRIC_03</span>
+              <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="stat-count"><span class="counter-num">0</span></div>
+            <div class="stat-label">Projects Deployed</div>
+          </div>
+
+          <div class="stat-glass-card counter-card" data-target="92">
+            <div class="stat-header">
+              <span class="stat-tag text-amber">METRIC_04</span>
+              <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+            </div>
+            <div class="stat-count"><span class="counter-num">0</span>%</div>
+            <div class="stat-label">Model Training Sync</div>
+          </div>
+        </div>
+
+        <!-- Terminal Console Matrix Widget -->
+        <div class="terminal-container">
+          <div class="terminal-header">
+            <div class="terminal-buttons">
+              <span class="term-btn term-close"></span>
+              <span class="term-btn term-minimize"></span>
+              <span class="term-btn term-maximize"></span>
+            </div>
+            <div class="terminal-title">bash // abhishek_daramoni // core_cli.sh</div>
+            <div class="terminal-status-badge">GRID ACTIVE</div>
+          </div>
+          <div class="terminal-body" id="terminal-body">
+            <div class="terminal-output">
+              <div class="term-line">Welcome to Abhishek's OS Core Console. Type <span class="term-highlight">help</span> for a list of system diagnostics.</div>
+              <div class="term-line">Initializing interactive comms channel... Done.</div>
+            </div>
+            <div class="terminal-input-line">
+              <span class="terminal-prompt">abhishek@core_os:~$</span>
+              <input type="text" id="terminal-input" autocomplete="off" autofocus>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Activities Feed -->
+        <div class="live-activity-section">
+          <h3 class="section-title-sub">REAL-TIME COMMITS & OPERATIONS</h3>
+          <div class="activity-log-stream" id="activity-stream">
+            <!-- Dynamically populated via JS simulator -->
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. ABOUT VIEW -->
+      <section class="view-panel" id="about-view">
+        <h2 class="section-title text-glow">Biometrics (About)</h2>
+        <p class="panel-desc">Developer details, education timeline, and core journey log.</p>
+        
+        <div class="about-grid">
+          <!-- Glass Bio Card -->
+          <div class="about-bio-card glass-card">
+            <h3 class="card-title text-glow">A_BIO.SYS</h3>
+            <p>
+              My name is **Abhishek Daramoni**, and I am currently pursuing a **B.Tech in Computer Science and Engineering** with a specialization in **Artificial Intelligence and Machine Learning** at Rajkot, Gujarat, India.
+            </p>
+            <p>
+              I bridge the gap between back-end algorithms and front-end interface engineering. I focus on developing clean, responsive architectures integrated with intelligent AI processing engines. My goal is to build digital experiences that operate like modern operating systems—alive, responsive, and robust.
+            </p>
+            
+            <div class="bio-specifications">
+              <div class="spec-row">
+                <span class="spec-label">COGNITIVE_BASE</span>
+                <span class="spec-val">Rajkot, Gujarat, India</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">SECTOR</span>
+                <span class="spec-val">AI & Full-Stack Development</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">COMPILER_PREFERENCE</span>
+                <span class="spec-val">VS Code // IntelliJ IDEA</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">STATUS</span>
+                <span class="spec-val text-green">OPEN FOR COLLABORATIONS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Neural Assistant Chatbot Interface -->
+          <div class="about-bot-card glass-card">
+            <div class="bot-header">
+              <div class="bot-avatar">AI</div>
+              <div class="bot-status-info">
+                <span class="bot-name">NeuralAssistant_v1.0</span>
+                <span class="bot-status-text">Ready to synthesize...</span>
+              </div>
+            </div>
+            <div class="bot-messages" id="bot-messages">
+              <div class="bot-msg incoming">
+                <div class="msg-bubble">System ready. Click a telemetry query below to scan Abhishek's capabilities.</div>
+              </div>
+            </div>
+            <div class="bot-quick-queries">
+              <button class="bot-query-btn" data-query="stack">SCAN TECH STACK</button>
+              <button class="bot-query-btn" data-query="availability">CHECK INTERNSHIP CAPABILITY</button>
+              <button class="bot-query-btn" data-query="vibify">ANALYZE VIBIFY PROJECT</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Timeline -->
+        <div class="timeline-container-main">
+          <h3 class="card-title text-glow">EDUCATION_CHRONOLOGY</h3>
+          <div class="cyber-timeline">
+            <div class="timeline-node">
+              <div class="node-indicator"></div>
+              <div class="node-content glass-card">
+                <span class="node-date text-cyan">2023 - 2027</span>
+                <h4 class="node-title">B.Tech Computer Science & Engineering (AI & ML)</h4>
+                <p class="node-subtitle">RK University (or equivalent Institute), Rajkot, Gujarat</p>
+                <p class="node-desc">Focusing on Deep Neural Networks, Object-Oriented Architectures, Full-stack Web Architecture, and database normalization models.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-node">
+              <div class="node-indicator"></div>
+              <div class="node-content glass-card">
+                <span class="node-date text-green">2021 - 2023</span>
+                <h4 class="node-title">Higher Secondary Education (Science Stream)</h4>
+                <p class="node-subtitle">Gujarat Board Curriculum</p>
+                <p class="node-desc">Mastered fundamental sciences, advanced algebra, calculus, and introductory scripting interfaces.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. SKILLS VIEW -->
+      <section class="view-panel" id="skills-view">
+        <h2 class="section-title text-glow">Tech Modules (Skills)</h2>
+        <p class="panel-desc">Interactive tech-stack meters, language profiles, and database capabilities.</p>
+
+        <!-- Skill Grid Layout -->
+        <div class="skills-main-grid">
+          
+          <!-- Tech Stack Cards -->
+          <div class="tech-category-card glass-card">
+            <h3 class="category-header text-glow">CORE_LANGUAGES</h3>
+            
+            <div class="skill-meter-row">
+              <div class="skill-meta-data">
+                <span class="skill-name">Java</span>
+                <span class="skill-perc">85%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill bg-cyan" style="width: 0%;" data-val="85%"></div>
+              </div>
+            </div>
+
+            <div class="skill-meter-row">
+              <div class="skill-meta-data">
+                <span class="skill-name">Core Java & OOP</span>
+                <span class="skill-perc">90%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill bg-green" style="width: 0%;" data-val="90%"></div>
+              </div>
+            </div>
+
+            <div class="skill-meter-row">
+              <div class="skill-meta-data">
+                <span class="skill-name">JavaScript (ES6+)</span>
+                <span class="skill-perc">80%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill bg-purple" style="width: 0%;" data-val="80%"></div>
+              </div>
+            </div>
+
+            <div class="skill-meter-row">
+              <div class="skill-meta-data">
+                <span class="skill-name">HTML5 / CSS3</span>
+                <span class="skill-perc">95%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill bg-amber" style="width: 0%;" data-val="95%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tech-category-card glass-card">
+            <h3 class="category-header text-glow">INTELLIGENCE_LAYERS (AI/ML)</h3>
+
+            <div class="skill-meter-row">
+              <div class="skill-meta-data">
+                <span class="skill-name">Model Training & Inference</span>
+                <span class="skill-perc">75%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill bg-cyan" style="width: 0%;" data-val="75%"></div>
+              </div>
+            </div>
+
+            <div class="skill-meter-row">
+              <div class="skill-meta-data">
+                <span class="skill-name">Prompt Engineering</span>
+                <span class="skill-perc">95%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill bg-green" style="width: 0%;" data-val="95%"></div>
+              </div>
+            </div>
+
+            <div class="skill-meter-row">
+              <div class="skill-meta-data">
+                <span class="skill-name">Data Structures & Analysis</span>
+                <span class="skill-perc">80%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar-fill bg-purple" style="width: 0%;" data-val="80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Circular Skill Gauges -->
+        <div class="skills-circular-section">
+          <h3 class="card-title text-glow">SPECIALIZATION_DENSITY</h3>
+          
+          <div class="circular-gauges-container">
+            <div class="gauge-card glass-card">
+              <div class="gauge-svg-wrapper">
+                <svg viewBox="0 0 100 100" class="circular-gauge">
+                  <circle cx="50" cy="50" r="40" class="gauge-track"/>
+                  <circle cx="50" cy="50" r="40" class="gauge-fill stroke-cyan" data-dash="213" style="stroke-dashoffset: 251.2;"/>
+                </svg>
+                <div class="gauge-percentage">85%</div>
+              </div>
+              <span class="gauge-label">Java System OOP</span>
+            </div>
+
+            <div class="gauge-card glass-card">
+              <div class="gauge-svg-wrapper">
+                <svg viewBox="0 0 100 100" class="circular-gauge">
+                  <circle cx="50" cy="50" r="40" class="gauge-track"/>
+                  <circle cx="50" cy="50" r="40" class="gauge-fill stroke-green" data-dash="201" style="stroke-dashoffset: 251.2;"/>
+                </svg>
+                <div class="gauge-percentage">80%</div>
+              </div>
+              <span class="gauge-label">AI Integration</span>
+            </div>
+
+            <div class="gauge-card glass-card">
+              <div class="gauge-svg-wrapper">
+                <svg viewBox="0 0 100 100" class="circular-gauge">
+                  <circle cx="50" cy="50" r="40" class="gauge-track"/>
+                  <circle cx="50" cy="50" r="40" class="gauge-fill stroke-purple" data-dash="226" style="stroke-dashoffset: 251.2;"/>
+                </svg>
+                <div class="gauge-percentage">90%</div>
+              </div>
+              <span class="gauge-label">Web Client Architect</span>
+            </div>
+
+            <div class="gauge-card glass-card">
+              <div class="gauge-svg-wrapper">
+                <svg viewBox="0 0 100 100" class="circular-gauge">
+                  <circle cx="50" cy="50" r="40" class="gauge-track"/>
+                  <circle cx="50" cy="50" r="40" class="gauge-fill stroke-amber" data-dash="188" style="stroke-dashoffset: 251.2;"/>
+                </svg>
+                <div class="gauge-percentage">75%</div>
+              </div>
+              <span class="gauge-label">Full Stack Integration</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. PROJECTS VIEW -->
+      <section class="view-panel" id="projects-view">
+        <div class="projects-header-controls">
+          <div>
+            <h2 class="section-title text-glow">Deployments (Projects)</h2>
+            <p class="panel-desc">Verify functional models and repositories.</p>
+          </div>
+          
+          <!-- Category Filtering Chips -->
+          <div class="project-filters">
+            <button class="filter-chip active" data-filter="all">ALL_MODULES</button>
+            <button class="filter-chip" data-filter="ai-ml">AI_&_ML</button>
+            <button class="filter-chip" data-filter="full-stack">FULL_STACK</button>
+          </div>
+        </div>
+
+        <div class="projects-grid" id="projects-grid">
+          
+          <!-- Project 1 -->
+          <div class="project-card glass-card" data-category="full-stack">
+            <div class="card-inner-border"></div>
+            <div class="project-card-header">
+              <div class="project-glow bg-cyan"></div>
+              <span class="project-status-tag">ACTIVE_DEPL</span>
+              <h3 class="project-title text-glow">Vibify (Spotify Clone)</h3>
+            </div>
+            <div class="project-card-body">
+              <p>Premium cyberpunk music platform featuring HTML5 Web Audio API equalizer visualizers, draggable mini player overlays, responsive grids, and system color theme selectors.</p>
+              
+              <div class="tech-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS Variables</span>
+                <span class="tag">Web Audio API</span>
+                <span class="tag">Vanilla JS</span>
+              </div>
+            </div>
+            <div class="project-card-actions">
+              <a href="#" class="btn-project-secondary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-xs"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span>REPOSITORY</span>
+              </a>
+              <a href="#" class="btn-project-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-xs"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                <span>LIVE DEMO</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card glass-card" data-category="ai-ml">
+            <div class="card-inner-border"></div>
+            <div class="project-card-header">
+              <div class="project-glow bg-green"></div>
+              <span class="project-status-tag">STABLE</span>
+              <h3 class="project-title text-glow">AI Model Dashboard</h3>
+            </div>
+            <div class="project-card-body">
+              <p>Futuristic SaaS monitoring console designed for hosting AI metrics, tracking neural weight drift, data compilation performance, and graphing active training loss profiles.</p>
+              
+              <div class="tech-tags">
+                <span class="tag">AI & ML</span>
+                <span class="tag">HTML5 Canvas</span>
+                <span class="tag">CSS Grid</span>
+                <span class="tag">Chart.js</span>
+              </div>
+            </div>
+            <div class="project-card-actions">
+              <a href="#" class="btn-project-secondary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-xs"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span>REPOSITORY</span>
+              </a>
+              <a href="#" class="btn-project-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-xs"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                <span>LIVE DEMO</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card glass-card" data-category="full-stack">
+            <div class="card-inner-border"></div>
+            <div class="project-card-header">
+              <div class="project-glow bg-purple"></div>
+              <span class="project-status-tag">STABLE</span>
+              <h3 class="project-title text-glow">3D House Visualizer</h3>
+            </div>
+            <div class="project-card-body">
+              <p>WebGL architectural blueprint simulator rendering 3D digital houses. Features model parameter controls, light calculations, and customized texture injections.</p>
+              
+              <div class="tech-tags">
+                <span class="tag">Java Core</span>
+                <span class="tag">OOP Model</span>
+                <span class="tag">Three.js</span>
+                <span class="tag">WebGL</span>
+              </div>
+            </div>
+            <div class="project-card-actions">
+              <a href="#" class="btn-project-secondary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-xs"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span>REPOSITORY</span>
+              </a>
+              <a href="#" class="btn-project-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-xs"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                <span>LIVE DEMO</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card glass-card" data-category="full-stack">
+            <div class="card-inner-border"></div>
+            <div class="project-card-header">
+              <div class="project-glow bg-amber"></div>
+              <span class="project-status-tag">STABLE</span>
+              <h3 class="project-title text-glow">Focus Bubble Project</h3>
+            </div>
+            <div class="project-card-body">
+              <p>Time management application fusing Pomodoro sequences with synthesized white noise filters. Supports productivity graphs and dark CSS customization states.</p>
+              
+              <div class="tech-tags">
+                <span class="tag">JavaScript</span>
+                <span class="tag">Web Audios</span>
+                <span class="tag">CSS Variables</span>
+                <span class="tag">LocalStorage</span>
+              </div>
+            </div>
+            <div class="project-card-actions">
+              <a href="#" class="btn-project-secondary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-xs"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <span>REPOSITORY</span>
+              </a>
+              <a href="#" class="btn-project-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-xs"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                <span>LIVE DEMO</span>
+              </a>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- 5. CERTIFICATIONS VIEW -->
+      <section class="view-panel" id="certifications-view">
+        <h2 class="section-title text-glow">Credentials (Certifications)</h2>
+        <p class="panel-desc">Cryptographically authenticated badges and systems specialization.</p>
+
+        <div class="certifications-grid">
+          
+          <!-- Cert 1 -->
+          <div class="cert-card glass-card">
+            <div class="cert-header">
+              <div class="cert-glow bg-cyan"></div>
+              <div class="cert-badge-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="badge-svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.25z"/></svg>
+              </div>
+              <span class="cert-authority">MICROSOFT</span>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-title text-glow">Microsoft Azure Fundamentals</h3>
+              <p>Validated cloud computing services, resource groups, storage solutions, virtual networking matrices, and active directory systems (AZ-900).</p>
+              
+              <div class="cert-meta-row">
+                <span class="cert-id">VERIFY_ID: AZ900-AD992</span>
+                <span class="verify-status-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="icon-xxs"><polyline points="20 6 9 17 4 12"/></svg>
+                  VERIFIED
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="cert-card glass-card">
+            <div class="cert-header">
+              <div class="cert-glow bg-green"></div>
+              <div class="cert-badge-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="badge-svg"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+              </div>
+              <span class="cert-authority">DEEPLAWN.AI // COMS</span>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-title text-glow">Prompt Engineering Specialized</h3>
+              <p>Designing optimal prompt schemas, system instructions, few-shot conditioning, chain-of-thought pathways, and LLM behavior tuning algorithms.</p>
+              
+              <div class="cert-meta-row">
+                <span class="cert-id">VERIFY_ID: PE-991204</span>
+                <span class="verify-status-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="icon-xxs"><polyline points="20 6 9 17 4 12"/></svg>
+                  VERIFIED
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="cert-card glass-card">
+            <div class="cert-header">
+              <div class="cert-glow bg-purple"></div>
+              <div class="cert-badge-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="badge-svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              </div>
+              <span class="cert-authority">VANDERBILT // COURSERA</span>
+            </div>
+            <div class="cert-body">
+              <h3 class="cert-title text-glow">ChatGPT for Everyone</h3>
+              <p>Practical integration of generative pipelines into business infrastructure, prompt generation optimization, and automating daily computational tasks.</p>
+              
+              <div class="cert-meta-row">
+                <span class="cert-id">VERIFY_ID: CFE-409121</span>
+                <span class="verify-status-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="icon-xxs"><polyline points="20 6 9 17 4 12"/></svg>
+                  VERIFIED
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 6. ANALYTICS VIEW -->
+      <section class="view-panel" id="analytics-view">
+        <h2 class="section-title text-glow">Diagnostics (Stats)</h2>
+        <p class="panel-desc">Real-time system resource allocation and development activity vectors.</p>
+
+        <div class="charts-main-grid">
+          <!-- Coding hours line chart -->
+          <div class="chart-glass-box glass-card">
+            <div class="chart-header-data">
+              <h3 class="chart-title text-glow">WEEKLY CODING INTENSITY (HOURS)</h3>
+              <span class="chart-value text-cyan">34.5 hrs // ACTIVE</span>
+            </div>
+            <div class="chart-canvas-wrapper">
+              <canvas id="line-chart"></canvas>
+            </div>
+            <div class="chart-footer-labels">
+              <span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span>
+            </div>
+          </div>
+
+          <!-- Radar skill chart -->
+          <div class="chart-glass-box glass-card">
+            <div class="chart-header-data">
+              <h3 class="chart-title text-glow">TECH CONVERGENCE PROFILE</h3>
+              <span class="chart-value text-green">RADAR_LOCK</span>
+            </div>
+            <div class="chart-canvas-wrapper radar-wrapper">
+              <canvas id="radar-chart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulated GitHub contribution grid calendar -->
+        <div class="github-calendar-box glass-card">
+          <div class="git-header-bar">
+            <h3 class="chart-title text-glow">COMMIT_HISTORY_MATRIX (PAST 60 DAYS)</h3>
+            <div class="git-stats-summary">
+              <span>Total Commits: 284</span>
+              <span>Sync Status: 100%</span>
+            </div>
+          </div>
+          <div class="git-grid-container" id="git-grid">
+            <!-- Populated via script.js -->
+          </div>
+          <div class="git-grid-legend">
+            <span>Less</span>
+            <div class="legend-box level-0"></div>
+            <div class="legend-box level-1"></div>
+            <div class="legend-box level-2"></div>
+            <div class="legend-box level-3"></div>
+            <div class="legend-box level-4"></div>
+            <span>More</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. CONTACT VIEW -->
+      <section class="view-panel" id="contact-view">
+        <h2 class="section-title text-glow">Comms Uplink (Contact)</h2>
+        <p class="panel-desc">Transmit message sequences directly into Abhishek's notifications panel.</p>
+
+        <div class="contact-layout-grid">
+          <!-- Contact Form Glass Card -->
+          <div class="contact-form-wrapper glass-card">
+            <div class="form-header">
+              <span class="form-tag text-green">SECURE_SSL_UPLINK</span>
+              <h3 class="card-title text-glow">TRANSMIT_SEQUENCE</h3>
+            </div>
+            
+            <form id="portfolio-contact-form" onsubmit="return false;">
+              <div class="form-group">
+                <label for="contact-name">TRANSMITTER_NAME</label>
+                <div class="input-glow-wrapper">
+                  <input type="text" id="contact-name" placeholder="Enter identity..." required autocomplete="off">
+                  <span class="input-focus-bar"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email">RETURN_EMAIL_ADDRESS</label>
+                <div class="input-glow-wrapper">
+                  <input type="email" id="contact-email" placeholder="name@domain.com" required autocomplete="off">
+                  <span class="input-focus-bar"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-msg">TRANSMISSION_PAYLOAD</label>
+                <div class="input-glow-wrapper">
+                  <textarea id="contact-msg" placeholder="Compile message sequence..." required></textarea>
+                  <span class="input-focus-bar"></span>
+                </div>
+              </div>
+
+              <button type="submit" id="submit-uplink-btn" class="btn-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                <span>DISPATCH COMMUNICATE</span>
+              </button>
+            </form>
+            <div id="form-feedback-overlay" class="form-feedback-overlay">
+              <div class="feedback-spinner"></div>
+              <div class="feedback-text">> COMPILING PAYLOAD...</div>
+            </div>
+          </div>
+
+          <!-- Quick uplink endpoints -->
+          <div class="contact-endpoints-grid">
+            <div class="endpoint-card glass-card">
+              <div class="endpoint-icon bg-cyan">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="endpoint-info">
+                <h4>DIRECT_SMTP_UPLINK</h4>
+                <a href="mailto:abhishekdaramoni@email.com">abhishekdaramoni@email.com</a>
+              </div>
+            </div>
+
+            <div class="endpoint-card glass-card">
+              <div class="endpoint-icon bg-green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </div>
+              <div class="endpoint-info">
+                <h4>LINKEDIN_SYNC</h4>
+                <a href="https://linkedin.com" target="_blank">linkedin.com/in/abhishek-daramoni</a>
+              </div>
+            </div>
+
+            <div class="endpoint-card glass-card">
+              <div class="endpoint-icon bg-purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </div>
+              <div class="endpoint-info">
+                <h4>GITHUB_REPOS</h4>
+                <a href="https://github.com" target="_blank">github.com/abhishekdaramoni</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. SETTINGS VIEW -->
+      <section class="view-panel" id="settings-view">
+        <h2 class="section-title text-glow">Preferences (Config)</h2>
+        <p class="panel-desc">Modify system graphic density, active telemetry indicators, and color theme overrides.</p>
+
+        <div class="settings-grid">
+          
+          <!-- Customization Glass Card -->
+          <div class="settings-card glass-card">
+            <h3 class="card-title text-glow">INTERACTIONS_PREFS</h3>
+            
+            <div class="setting-row">
+              <div class="setting-desc">
+                <h4>Dynamic Mouse Follower</h4>
+                <p>Toggle fluid glowing pointer feedback overlay.</p>
+              </div>
+              <label class="switch-toggle">
+                <input type="checkbox" id="cursor-toggle" checked>
+                <span class="slider-round"></span>
+              </label>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-desc">
+                <h4>Particle Density</h4>
+                <p>Modify floating background node density multipliers.</p>
+              </div>
+              <div class="slider-container">
+                <input type="range" id="particle-density-slider" min="20" max="150" value="80">
+                <span class="range-value" id="density-val">80</span>
+              </div>
+            </div>
+
+            <div class="setting-row">
+              <div class="setting-desc">
+                <h4>Background Node Model</h4>
+                <p>Switch between interconnected neural nets and grid digital rain.</p>
+              </div>
+              <div class="cyber-select-wrapper">
+                <select id="canvas-mode-select">
+                  <option value="neural">Neural Network Webs</option>
+                  <option value="matrix">Digital Code Rain</option>
+                  <option value="disabled">Disable Background Graphics</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Color Theme Selection -->
+          <div class="settings-card glass-card">
+            <h3 class="card-title text-glow">MATRIX_THEME_SELECT</h3>
+            <p class="settings-panel-info">Select color frequencies to recalibrate the dashboard aesthetics.</p>
+
+            <div class="theme-selector-grid">
+              <button class="theme-select-btn theme-blue active" data-theme="blue">
+                <span class="theme-color-preview preview-blue"></span>
+                <span class="theme-title">NEON BLUE</span>
+              </button>
+
+              <button class="theme-select-btn theme-green" data-theme="green">
+                <span class="theme-color-preview preview-green"></span>
+                <span class="theme-title">CYBER GREEN</span>
+              </button>
+
+              <button class="theme-select-btn theme-purple" data-theme="purple">
+                <span class="theme-color-preview preview-purple"></span>
+                <span class="theme-title">PURPLE SYNC</span>
+              </button>
+
+              <button class="theme-select-btn theme-amber" data-theme="amber">
+                <span class="theme-color-preview preview-amber"></span>
+                <span class="theme-title">AMBER FLAME</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Dashboard Footer -->
+      <footer class="cyber-footer">
+        <div class="footer-neon-line"></div>
+        <div class="footer-content">
+          <div class="footer-left">
+            <span>SYSTEM STATE: SYNCED</span>
+            <span class="pulse-indicator"></span>
+          </div>
+          <div class="footer-center">
+            <span>&copy; 2026 ABHISHEK DARAMONI. ALL RIGHTS RESERVED. v2.4-STABLE</span>
+          </div>
+          <div class="footer-right">
+            <span>CORE_OS_LATENCY: 0.04ms</span>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Audio elements or other modules (if any) -->
+  
+  <!-- Script Load -->
+  <script src="script.js"></script>
+</body>
+</html>
