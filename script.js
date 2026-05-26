@@ -1236,7 +1236,8 @@ function initGlobalSearch() {
     { title: "Vibify Project (Spotify Clone)", view: "projects", anchor: "projects-view", desc: "Cyberpunk client dashboard containing Web Audio visualizer canvas interfaces." },
     { title: "Microsoft Azure Fundamentals", view: "certifications", anchor: "certifications-view", desc: "Cloud resource groups AZ-900 credential systems." },
     { title: "AI Model SaaS Dashboard", view: "projects", anchor: "projects-view", desc: "Monitoring console containing custom canvas loss profiles." },
-    { title: "B.Tech CSE Education Details", view: "about", anchor: "about-view", desc: "RK University course chronology milestones." },
+    { title: "B.Tech CSE Education Details", view: "about", anchor: "about-view", desc: "Marwadi University course chronology milestones." },
+    { title: "Higher Secondary Education (MPC)", view: "about", anchor: "about-view", desc: "Narayana College (Hyderabad) course chronology milestones." },
     { title: "Uplink Secure contact details", view: "contact", anchor: "contact-view", desc: "Email relays and LinkedIn sync gateways." }
   ];
 
