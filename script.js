@@ -11,71 +11,125 @@
 const SystemDB = {
   profile: {
     name: "Abhishek Daramoni",
-    role: "B.Tech CSE (AI & ML) Student",
-    location: "Rajkot, Gujarat, India",
-    tagline: "Aspiring Full-Stack & AI Developer Building Futuristic Digital Experiences",
+    role: "AI/ML & Full-Stack Developer",
+    location: "India",
+    tagline: "Building practical AI systems, computer-vision applications, and modern full-stack experiences.",
     email: "abhishekdaramoni@email.com",
-    linkedin: "linkedin.com/in/abhishek-daramoni",
-    github: "github.com/abhishekdaramoni"
+    linkedin: "https://www.linkedin.com/in/abhishek-daramoni-7137b6348/",
+    github: "https://github.com/abhishekdaramoni-spec"
   },
-  skills: [
-    { name: "Java", level: 85, category: "Languages" },
-    { name: "Core Java & OOP", level: 90, category: "Languages" },
-    { name: "JavaScript", level: 80, category: "Languages" },
-    { name: "HTML & CSS", level: 95, category: "Languages" },
-    { name: "AI & ML Models", level: 80, category: "Intelligence" },
-    { name: "Prompt Engineering", level: 95, category: "Intelligence" },
-    { name: "Data Structures & Analysis", level: 80, category: "Intelligence" },
-    { name: "Full Stack Development", level: 75, category: "Integration" }
-  ],
   projects: [
     {
-      id: "vibify",
-      title: "Vibify (Spotify Clone)",
-      category: "full-stack",
-      desc: "Premium cyberpunk music platform featuring HTML5 Web Audio API equalizer visualizers, draggable mini player overlays, responsive grids, and system color theme selectors.",
-      tags: ["HTML5", "CSS Variables", "Web Audio API", "Vanilla JS"]
+      id: "ai-virtual-mouse",
+      title: "AI Virtual Mouse Pro V2",
+      category: "computer-vision",
+      desc: "A real-time computer-vision system that uses hand tracking and gesture recognition to control computer interaction through a webcam. Improved stability, smoothness, and usability over V1.",
+      tags: ["Python", "OpenCV", "MediaPipe", "PyAutoGUI"],
+      features: [
+        "Real-time hand gesture recognition",
+        "Cursor control via index finger tracking",
+        "Click mechanism using pinch gestures",
+        "Smooth cursor movement interpolation"
+      ],
+      github: "https://github.com/abhishekdaramoni-spec/AI-Virtual-Mouse-Pro-V2"
     },
     {
-      id: "ai-dashboard",
-      title: "AI Model Dashboard",
+      id: "road-accident-detection",
+      title: "Road Accident Detection",
       category: "ai-ml",
-      desc: "Futuristic SaaS monitoring console designed for hosting AI metrics, tracking neural weight drift, data compilation performance, and graphing active training loss profiles.",
-      tags: ["AI & ML", "HTML5 Canvas", "CSS Grid", "Chart.js"]
+      desc: "Computer vision application designed to detect road accidents in real-time from video feeds using deep learning models.",
+      tags: ["Python", "OpenCV", "Deep Learning", "TensorFlow/Keras"],
+      features: [
+        "Real-time video frame analysis",
+        "Accident classification model",
+        "Alert triggering mechanism"
+      ],
+      github: "https://github.com/abhishekdaramoni-spec/Road-Accident-Detection"
     },
     {
-      id: "house-visualizer",
-      title: "3D House Visualizer",
-      category: "full-stack",
-      desc: "WebGL architectural blueprint simulator rendering 3D digital houses. Features model parameter controls, light calculations, and customized texture injections.",
-      tags: ["Java Core", "OOP Model", "Three.js", "WebGL"]
+      id: "object-detection",
+      title: "Object Detection / Tracking",
+      category: "computer-vision",
+      desc: "Advanced object detection and tracking system capable of identifying and following multiple objects across video frames.",
+      tags: ["Python", "YOLO", "OpenCV"],
+      features: [
+        "Multi-object tracking",
+        "Bounding box visualization",
+        "Performance optimized for real-time"
+      ],
+      github: "https://github.com/abhishekdaramoni-spec/Object-Detection-Tracking"
     },
     {
-      id: "focus-bubble",
-      title: "Focus Bubble Project",
+      id: "ai-chatbot",
+      title: "AI Chatbot",
+      category: "ai-ml",
+      desc: "Intelligent conversational agent built using natural language processing techniques to understand and respond to user queries.",
+      tags: ["Python", "NLP", "Machine Learning"],
+      features: [
+        "Intent recognition",
+        "Contextual responses",
+        "Extensible knowledge base"
+      ],
+      github: "https://github.com/abhishekdaramoni-spec/AI-Chatbot"
+    },
+    {
+      id: "blood-bank",
+      title: "Blood Bank Management System",
+      category: "software",
+      desc: "Comprehensive software solution for managing blood bank inventory, donor records, and distribution logistics.",
+      tags: ["Java", "OOP", "MySQL"],
+      features: [
+        "Donor registration and tracking",
+        "Inventory management by blood group",
+        "Secure database integration"
+      ],
+      github: "https://github.com/abhishekdaramoni-spec/Blood-Bank-Management-System"
+    },
+    {
+      id: "pandemic-simulator",
+      title: "Pandemic Simulator",
+      category: "software",
+      desc: "Simulation software to model the spread of infectious diseases based on various parameters like population density and transmission rates.",
+      tags: ["Java", "Data Structures", "Algorithms"],
+      features: [
+        "Configurable transmission parameters",
+        "Visual representation of spread",
+        "Statistical output and graphing"
+      ],
+      github: "https://github.com/abhishekdaramoni-spec/Pandemic-Simulator"
+    },
+    {
+      id: "vibify",
+      title: "Vibify",
       category: "full-stack",
-      desc: "Time management application fusing Pomodoro sequences with white noise filters. Supports productivity graphs and dark CSS customization states.",
-      tags: ["JavaScript", "Web Audios", "CSS Variables", "LocalStorage"]
+      desc: "Premium music platform featuring responsive grids and system color theme selectors.",
+      tags: ["HTML5", "CSS", "Vanilla JS"],
+      features: [
+        "Responsive music player UI",
+        "Custom theme support",
+        "Interactive playlist management"
+      ],
+      github: "https://github.com/abhishekdaramoni-spec/vibify"
     }
   ],
   certifications: [
     {
-      title: "Microsoft Azure Fundamentals",
+      title: "Microsoft Azure Fundamentals (AZ-900)",
       authority: "Microsoft",
-      id: "AZ900-AD992",
-      desc: "Validated cloud computing services, resource groups, storage solutions, virtual networking matrices, and active directory systems (AZ-900)."
+      id: "Valid Credential",
+      desc: "Validated cloud computing services, resource groups, storage solutions, and virtual networking."
     },
     {
       title: "Prompt Engineering Specialized",
       authority: "DeepLearning.AI",
-      id: "PE-991204",
-      desc: "Designing optimal prompt schemas, system instructions, few-shot conditioning, chain-of-thought pathways, and LLM behavior tuning algorithms."
+      id: "Valid Credential",
+      desc: "Designing optimal prompt schemas, system instructions, and LLM behavior tuning algorithms."
     },
     {
       title: "ChatGPT for Everyone",
-      authority: "Vanderbilt University (Coursera)",
-      id: "CFE-409121",
-      desc: "Practical integration of generative pipelines into business infrastructure, prompt generation optimization, and automating daily computational tasks."
+      authority: "Coursera",
+      id: "Valid Credential",
+      desc: "Practical integration of generative pipelines into infrastructure and automating computational tasks."
     }
   ]
 };
@@ -157,6 +211,7 @@ window.addEventListener('DOMContentLoaded', () => {
     initTypingHeader();
     initTerminalCLI();
     initAIChatbot();
+    initDynamicProjects();
     initProjectFiltering();
     initCommitHistoryMatrix();
     initGlobalSearch();
@@ -888,6 +943,98 @@ function initAIChatbot() {
 }
 
 // --- 12. DYNAMIC PROJECT DEPLOYMENT FILTERING ---
+
+// MODAL DOM
+DOM.projectModal = document.getElementById('project-modal');
+DOM.closeModalBtn = document.getElementById('close-modal-btn');
+DOM.modalCategory = document.getElementById('modal-category');
+DOM.modalTitle = document.getElementById('modal-title');
+DOM.modalOverview = document.getElementById('modal-overview');
+DOM.modalTechStack = document.getElementById('modal-tech-stack');
+DOM.modalFeatures = document.getElementById('modal-features');
+DOM.modalActions = document.getElementById('modal-actions');
+
+function initDynamicProjects() {
+  if (!DOM.projectsGrid) return;
+  DOM.projectsGrid.innerHTML = '';
+  
+  SystemDB.projects.forEach(proj => {
+    const card = document.createElement('div');
+    card.className = 'project-card glass-card';
+    card.setAttribute('data-category', proj.category);
+    
+    // Assign color based on category
+    let colorClass = 'bg-cyan';
+    if(proj.category === 'computer-vision') colorClass = 'bg-purple';
+    if(proj.category === 'ai-ml') colorClass = 'bg-green';
+    if(proj.category === 'software') colorClass = 'bg-amber';
+    
+    const tagsHTML = proj.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+    
+    card.innerHTML = `
+      <div class="card-inner-border"></div>
+      <div class="project-card-header">
+        <div class="project-glow ${colorClass}"></div>
+        <span class="project-status-tag">STABLE</span>
+        <h3 class="project-title text-glow">${proj.title}</h3>
+      </div>
+      <div class="project-card-body">
+        <p>${proj.desc}</p>
+        <div class="tech-tags">
+          ${tagsHTML}
+        </div>
+      </div>
+      <div class="project-card-actions">
+        <button class="btn-project-primary view-case-study" data-id="${proj.id}">
+          <span>CASE STUDY</span>
+        </button>
+        <a href="${proj.github}" target="_blank" class="btn-project-secondary">
+          <span>GITHUB</span>
+        </a>
+      </div>
+    `;
+    DOM.projectsGrid.appendChild(card);
+  });
+
+  // Attach event listeners for Case Study buttons
+  const caseStudyBtns = document.querySelectorAll('.view-case-study');
+  caseStudyBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const projId = btn.getAttribute('data-id');
+      openProjectModal(projId);
+    });
+  });
+  
+  if (DOM.closeModalBtn) {
+    DOM.closeModalBtn.addEventListener('click', closeProjectModal);
+  }
+}
+
+function openProjectModal(id) {
+  const proj = SystemDB.projects.find(p => p.id === id);
+  if (!proj) return;
+  
+  DOM.modalCategory.textContent = proj.category.toUpperCase();
+  DOM.modalTitle.textContent = proj.title;
+  DOM.modalOverview.textContent = proj.desc;
+  
+  DOM.modalTechStack.innerHTML = proj.tags.map(tag => `<span class="tech-tag">${tag}</span>`).join('');
+  DOM.modalFeatures.innerHTML = proj.features.map(f => `<li>${f}</li>`).join('');
+  
+  let actionsHTML = `<a href="${proj.github}" target="_blank" class="btn-project-secondary">GITHUB REPO</a>`;
+  if (proj.demo) {
+     actionsHTML += `<a href="${proj.demo}" target="_blank" class="btn-project-primary">LIVE DEMO</a>`;
+  }
+  DOM.modalActions.innerHTML = actionsHTML;
+  
+  DOM.projectModal.classList.add('active');
+}
+
+function closeProjectModal() {
+  DOM.projectModal.classList.remove('active');
+}
+
 function initProjectFiltering() {
   if (!DOM.projectsGrid) return;
 
@@ -1153,35 +1300,7 @@ function renderRadarChart() {
 }
 
 // --- 14. SIMULATED GITHUB CONTRIBUTION MATRIX GRID ---
-function initCommitHistoryMatrix() {
-  if (!DOM.gitGrid) return;
-  
-  DOM.gitGrid.innerHTML = '';
-  const totalBoxes = 60; // 60 days
-  
-  // High commit rates on random days to make git activity feel authentic
-  for (let i = 0; i < totalBoxes; i++) {
-    const box = document.createElement('div');
-    
-    // Choose active level
-    let level = 0;
-    const rand = Math.random();
-    if (rand > 0.88) level = 4;      // critical commits
-    else if (rand > 0.72) level = 3; // high activity
-    else if (rand > 0.5) level = 2;  // medium activity
-    else if (rand > 0.28) level = 1; // light activity
-    
-    box.className = `git-cell level-${level}`;
-
-    // Tooltip simulation
-    const date = new Date();
-    date.setDate(date.getDate() - (totalBoxes - i));
-    const commitCount = level === 0 ? "No" : level === 1 ? "1" : level === 2 ? "3" : level === 3 ? "5" : "9";
-    box.title = `${commitCount} synchronization commits on ${date.toLocaleDateString()}`;
-    
-    DOM.gitGrid.appendChild(box);
-  }
-}
+function initCommitHistoryMatrix() {}
 
 // --- 15. SECURE UPLINK NOTIFICATION DISPATCH ENGINE ---
 function simulateActivityLogs() {
@@ -1189,11 +1308,11 @@ function simulateActivityLogs() {
   if (!stream) return;
 
   const activities = [
-    { tag: "GIT_COMMIT", text: "Merged AZURE-900 credentials schema into master branch." },
-    { tag: "SYS_SYNC", text: "Recalibrated neural chatbot parser coefficients." },
-    { tag: "COMPILE", text: "Compiled index.html modules successfully in 1.4ms." },
-    { tag: "UPLINK", text: "Established handshakes with secondary portfolio mirroring endpoints." },
-    { tag: "GRID_PUSH", text: "Updated tech specialization circle offsets." }
+    { tag: "GIT_COMMIT", text: "Pushed updates to AI Virtual Mouse Pro V2 repository." },
+    { tag: "BUILD", text: "Compiled portfolio styles and optimized JavaScript bundle." },
+    { tag: "DEPLOY", text: "Deployed latest full-stack changes to Vercel." },
+    { tag: "GIT_COMMIT", text: "Refactored Python scripts for Road Accident Detection model." },
+    { tag: "SYS_LOG", text: "Portfolio OS initialized and running smoothly." }
   ];
 
   // Append initial actions
@@ -1436,9 +1555,16 @@ function initScrollAndTriggerWatchers() {
   if (DOM.resumeBtn) {
     DOM.resumeBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      alert(">> Downloading Abhishek Daramoni Resume Schematic Hash (AZ-AD_2026.pdf)... Synchronizing connection.");
-      // In a real application, window.open('resume_path.pdf') would execute.
+      alert("Resume download functionality will be connected to your real PDF file here.");
     });
+  }
+  const navResume = document.getElementById('nav-resume-btn');
+  if (navResume) {
+    navResume.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert("Resume download functionality will be connected to your real PDF file here.");
+    });
+  };
   }
 
   // SPA navigation links triggers within views
