@@ -1564,7 +1564,6 @@ function initScrollAndTriggerWatchers() {
       e.preventDefault();
       alert("Resume download functionality will be connected to your real PDF file here.");
     });
-  };
   }
 
   // SPA navigation links triggers within views
